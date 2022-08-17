@@ -8,12 +8,12 @@
     justify-content: center;
 }
 
-.navbarWrapper h1{
+.navbarWrapper header{
     font-size: 40px;
     cursor: pointer;
 }
 
-.navbarWrapper h1:hover{
+.navbarWrapper header:hover{
     transform: scale(1.1);
     transition: 200ms;
 }

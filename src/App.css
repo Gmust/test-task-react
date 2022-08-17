@@ -50,3 +50,7 @@ table {
   justify-content: center;
   margin-top: 200px;
 }
+.errorBtnStyle{
+  background: white;
+  cursor: pointer;
+}

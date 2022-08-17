@@ -9,9 +9,9 @@ const Navbar = () => {
 
     return (
         <div className='navbarWrapper'>
-            <h1 onClick={()=> navigate('/')} >
+            <header onClick={()=> navigate('/')} >
                     Find Users!
-            </h1>
+            </header>
         </div>
     );
 };

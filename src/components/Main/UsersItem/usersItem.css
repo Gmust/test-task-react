@@ -1,5 +1,4 @@
 .itemsWrapper {
-    margin-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,12 +11,7 @@
     text-align: center;
     cursor: pointer;
 }
-.footerM{
-    background: blue;
-}
-.footerG{
-    background: pink;
-}
+
 
 .itemsWrapper:hover{
     transform: scale(1.1);

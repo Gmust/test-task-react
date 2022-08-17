@@ -1,25 +1,29 @@
 import React, {useEffect, useState} from 'react';
 import './main.css'
-import {userApi} from "../../service/api";
-import {IUser} from "../../models/User";
 import UsersItem from "./UsersItem/UsersItem";
+import {testApi} from "../../service/api";
 
 const Main = () => {
 
-    const [users,setUsers] = useState<IUser[]>([]);
+    const [idList, setIdList] = useState([]);
 
-        useEffect(()=>{
-             userApi.getUsers().then(data => setUsers(data))
-        },[])
+    useEffect(() => {
+            testApi.getList().then(data => (setIdList(data?.data)))
+    }, [])
 
-    if(!users.length){
-        return  <div className='errorStyle'>Something wrong! Try to load users later!</div>
+
+
+    if (!idList?.length) {
+        return <h1 data-testid={'errorElem'} className='errorStyle'>Something wrong! Try to load users later! Or try to reload page!
+            <button data-testid={'reloadBtn'} className='errorBtnStyle' onClick={()=>{testApi.getList().then(data => (setIdList(data?.data)))}}>Reload</button>
+        </h1>
     }
 
     return (
         <div>
-            {users.map(i =>
-               <UsersItem key={i.id} id={i.id} firstName={i.firstName} lastName={i.lastName} />
+            <label>User List</label>
+            {idList.map(i =>
+                <UsersItem key={i} id={i}/>
             )}
         </div>
     );
