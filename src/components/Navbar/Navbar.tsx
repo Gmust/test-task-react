@@ -9,7 +9,7 @@ const Navbar = () => {
 
     return (
         <div className='navbarWrapper'>
-            <header onClick={()=> navigate('/')} >
+            <header data-testid='clickableHeader' onClick={()=> navigate('/')} >
                     Find Users!
             </header>
         </div>

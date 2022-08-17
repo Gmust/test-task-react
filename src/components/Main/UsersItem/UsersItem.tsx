@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './usersItem.css'
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {testApi} from "../../../service/api";
 
 
@@ -14,11 +14,13 @@ const UsersItem = ({id}: TProps) => {
     const [users, setUsers] = useState<any>()
 
     const navigate = useNavigate();
-    const handleClick = () => {
-        navigate('/user/' + id)
+
+    const handleSetUsers =async ()=>{
+        const resp = await testApi.getUser(id)
+          setUsers(resp?.data)
     }
     useEffect(() => {
-        testApi.getUser(id).then(data => setUsers(data?.data))
+        handleSetUsers();
     }, [])
 
 
@@ -28,9 +30,9 @@ const UsersItem = ({id}: TProps) => {
             {
                 users ?
                     <div className='itemStyle'>
-                        <p onClick={() => handleClick()}> {
+                        <Link to={'/user/'+ id}  data-testid={'user-item'} > {
                             users.firstName
-                        }</p>
+                        }</Link>
                     </div>
                     : null
             }

@@ -7,25 +7,32 @@ import {testApi} from "../../../service/api";
 const User = () => {
 
     const [user, setUser] = useState({} as IUser);
-    const [error, setError] = useState();
 
     const {id} = useParams();
+
+    const handelSetUser = async () =>{
+      const resp = await  testApi.getUser(id)
+            setUser(resp?.data);
+    }
+
     useEffect(()=>{
-       testApi.getUser(id).then(data=>
-           setUser(data.data))
+   handelSetUser();
     },[])
 
 
-
-
+    if (user === undefined || null){
+        return <div className='errorStyle'>This profile have not info!</div>
+    }
     const userArr = Object.entries(user);
-    if(!userArr.length || user === undefined){
-        return  <div className='errorStyle'>There is no profile with that id!</div>
+
+
+    if(!userArr.length ){
+            return  <div className='errorStyle' data-testid="user-page-error" >There is no profile with that id!</div>
     }
 
 
     return (
-        <div className='userWrapper'>
+        <div className='userWrapper' data-testid="user-page-error">
             { userArr.map(([key, value]) =>
                 <div className='userStyle' key={key}>{key} : {value}</div>
             )}
