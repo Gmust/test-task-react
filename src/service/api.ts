@@ -1,7 +1,7 @@
 import axios from "axios";
 import {delayAdapterEnhancer} from "axios-delay";
 
-const token = process.env.REACT_APP_BEARER
+const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIxMjMiLCJpZGVudGl0eSI6IjEyMzQifQ.yOIx1ZozHSMy_ZndEEMXIH0YeGUkHH3idl_2WTI12gs"
 
 
 let instance = axios.create({

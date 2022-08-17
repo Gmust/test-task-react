@@ -30,7 +30,7 @@ const UsersItem = ({id}: TProps) => {
             {
                 users ?
                     <div className='itemStyle'>
-                        <Link to={'/user/'+ id}  data-testid={'user-item'} > {
+                        <Link to={'/user/'+ id} key={users.id}  data-testid={'user-item'} > {
                             users.firstName
                         }</Link>
                     </div>
