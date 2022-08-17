@@ -10,7 +10,7 @@ const User = () => {
     const {id} = useParams();
     useEffect(()=>{
         userApi.getUser(id).then(data => setUser(data))
-    },[])
+    },[id])
 
 
     const u = Object.entries(user)

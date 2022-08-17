@@ -1,5 +1,4 @@
 import axios from "axios";
-import {IUser} from "../models/User";
 
 let instance = axios.create({
     baseURL: 'https://6245b0906b7ecf057c22fce6.mockapi.io/',

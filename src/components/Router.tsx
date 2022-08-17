@@ -6,7 +6,6 @@ import ErrorPage from "../pages/ErrorPage";
 
 const Router = () => {
 
-    const id = 1;
 
     return (
         <Routes>

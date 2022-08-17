@@ -1,7 +1,6 @@
 import React from 'react';
 import './usersItem.css'
-import {IUser} from "../../../models/User";
-import {useNavigate, useParams} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 
 type TProps ={
